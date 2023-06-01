@@ -11,7 +11,7 @@ import {
   variants,
   InnerText,
 } from './Button.base';
-import { Sizes } from 'types';
+import { Sizes } from '../../types';
 
 export type ButtonProps = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,

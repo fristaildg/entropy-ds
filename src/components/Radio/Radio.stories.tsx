@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Radio } from '.';
-import { Checkbox } from '../Checkbox';
 import { ChangeEvent, useState } from 'react';
 
 export default {
