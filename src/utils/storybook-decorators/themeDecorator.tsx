@@ -1,23 +1,16 @@
 import { Story } from '@storybook/react';
 import { Button } from '../../components/Button';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { ThemeProvider } from '../../components/ThemeProvider';
-import { defaultTheme } from '../../theme';
 import { IconsProvider } from '../../components/Icon';
-
-const darkTheme = {
-  ...defaultTheme,
-  colors: defaultTheme.colors.modes?.['dark'],
-  name: 'dark',
-};
+import useThemes from '../../hooks/useThemes';
 
 export const themeDecorator = (Story: Story) => {
-  const [theme, setTheme] = useState<any>(defaultTheme);
+  const { switchTheme, theme } = useThemes();
 
   const handleSwitchTheme = () => {
-    setTheme((prevTheme: typeof defaultTheme) =>
-      prevTheme.name === 'dark' ? defaultTheme : darkTheme,
-    );
+    if (theme.name === 'default') return switchTheme('dark');
+    switchTheme('default');
   };
 
   useEffect(() => {
