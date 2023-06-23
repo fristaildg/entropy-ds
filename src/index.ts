@@ -6,6 +6,7 @@ export { Icon, IconsProvider } from './components/Icon';
 export { Input } from './components/Input';
 export { Radio } from './components/Radio';
 export { Textarea } from './components/Textarea';
+export { Box } from './components/Box';
 
 // hooks
 export { default as useThemes } from './hooks/useThemes';
