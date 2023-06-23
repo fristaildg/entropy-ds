@@ -8,7 +8,7 @@ const darkTheme = {
 };
 
 const useThemes = (themes = [defaultTheme, darkTheme]) => {
-  const [theme, setTheme] = useState<any>(themes[0]);
+  const [currentTheme, setTheme] = useState<any>(themes[0]);
 
   const switchTheme = (themeName: string) => {
     const selectedTheme = themes.find((th) => th.name === themeName);
@@ -16,8 +16,9 @@ const useThemes = (themes = [defaultTheme, darkTheme]) => {
   };
 
   return {
-    theme,
+    theme: currentTheme,
     switchTheme,
+    themes,
   };
 };
 
