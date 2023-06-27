@@ -1,7 +1,14 @@
 import { ForwardedRef, forwardRef } from 'react';
 import styled from 'styled-components';
 import { DivAttributes } from '../../types';
-import { ColorProps, TypographyProps, color, typography } from 'themed-props';
+import {
+  ColorProps,
+  SpaceProps,
+  TypographyProps,
+  color,
+  space,
+  typography,
+} from 'themed-props';
 
 export type TextProps = DivAttributes & {
   as?: 'p' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label';
@@ -11,11 +18,12 @@ export type TextProps = DivAttributes & {
   className?: string;
 };
 
-type StyledProps = ColorProps & TypographyProps;
+type StyledProps = ColorProps & TypographyProps & SpaceProps;
 
 const StyledText = styled.span<StyledProps>`
   ${color}
   ${typography}
+  ${space}
 `;
 
 const Text = (
@@ -43,6 +51,8 @@ const Text = (
       className={className}
       ref={ref}
       as={as}
+      $padding={0}
+      $margin={0}
       $color={color}
       $fontSize={sizes[size]}
       $textAlign={align}
