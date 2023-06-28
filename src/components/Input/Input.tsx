@@ -12,16 +12,18 @@ import {
   InputItemLeft,
   InputItemRight,
   InputWrapper,
+  StyledProps,
 } from './Input.base';
 
 export type InputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
-> & {
-  error?: boolean;
-  itemLeft?: ReactNode;
-  itemRight?: ReactNode;
-};
+> &
+  StyledProps & {
+    error?: boolean;
+    itemLeft?: ReactNode;
+    itemRight?: ReactNode;
+  };
 
 const Input = (props: InputProps, ref: ForwardedRef<HTMLInputElement>) => {
   const { itemLeft, itemRight } = props;

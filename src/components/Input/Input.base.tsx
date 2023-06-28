@@ -16,7 +16,7 @@ import {
 } from 'themed-props';
 import { InputProps } from './Input';
 
-type StyledProps = BorderProps &
+export type StyledProps = BorderProps &
   LayoutProps &
   ColorProps &
   PseudoClassProps &
@@ -24,7 +24,7 @@ type StyledProps = BorderProps &
   TypographyProps;
 
 export const InputBase = styled.input.attrs(
-  ({ error, itemLeft, itemRight }: InputProps) => ({
+  ({ error, itemLeft, itemRight, ...rest }: InputProps) => ({
     $paddingX: 3,
     $paddingLeft: itemLeft && 6,
     $paddingRight: itemRight && 6,
@@ -41,6 +41,7 @@ export const InputBase = styled.input.attrs(
       $border: 'thick',
       $borderColor: error ? 'danger.1' : 'primary.1',
     },
+    ...rest,
   }),
 )<StyledProps & Pick<InputProps, 'error'>>`
   outline: none;
